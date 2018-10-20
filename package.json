@@ -6,6 +6,11 @@
     "start": "electron ."
   },
   "devDependencies": {
-    "electron": "^3.0.3"
+    "electron": "2.0.10"
+  },
+  "dependencies": {
+    "fb": "^2.0.0",
+    "firebase": "^5.5.5",
+    "grpc": "^1.15.1"
   }
 }
