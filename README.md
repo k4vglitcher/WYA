@@ -1,4 +1,6 @@
-# WYA
+# WYA 
+[![Build Status](https://travis-ci.com/juanam/WYA.svg?token=7ZMtgG7Kx7YskZFxpzB6&branch=master)](https://travis-ci.com/juanam/WYA)
+
 Application for group event coordination created for the course 4156 - Advanced Software Engineering.
 
 # Setting up and Running
