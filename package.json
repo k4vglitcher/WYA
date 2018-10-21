@@ -4,7 +4,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "jest",
+    "test": "jest --updateSnapshot",
     "build": "electron-builder",
     "lint": "eslint \"./**/*.js\""
   },
