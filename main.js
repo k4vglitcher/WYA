@@ -7,25 +7,25 @@ var authentication = require('./dist/auth')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow() {
+function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({ width: 800, height: 600 })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
-  mainWindow.setVibrancy("sidebar")
+  mainWindow.setVibrancy('sidebar')
 
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyBKOGWZtv9h0dLHEhvTWewbvPQsajxa3Kw",
-    authDomain: "wya-electron.firebaseapp.com",
-    databaseURL: "https://wya-electron.firebaseio.com",
-    projectId: "wya-electron",
-    storageBucket: "wya-electron.appspot.com",
-    messagingSenderId: "604404649711"
-  };
-  firebase.initializeApp(config);
-  firebase.auth().useDeviceLanguage();
+    apiKey: 'AIzaSyBKOGWZtv9h0dLHEhvTWewbvPQsajxa3Kw',
+    authDomain: 'wya-electron.firebaseapp.com',
+    databaseURL: 'https://wya-electron.firebaseio.com',
+    projectId: 'wya-electron',
+    storageBucket: 'wya-electron.appspot.com',
+    messagingSenderId: '604404649711'
+  }
+  firebase.initializeApp(config)
+  firebase.auth().useDeviceLanguage()
 
   // Listener for Firebase auth state changes.
   firebase.auth().onAuthStateChanged(function (user) {
@@ -36,9 +36,9 @@ function createWindow() {
       console.log(user.metadata)
     } else {
       // User is not logged in.
-      authentication.facebookLogin(mainWindow);
+      authentication.facebookLogin(mainWindow)
     }
-  });
+  })
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
