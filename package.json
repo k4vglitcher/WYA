@@ -8,11 +8,13 @@
   },
   "devDependencies": {
     "electron": "2.0.10",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "pre-commit": "^1.2.2"
   },
   "dependencies": {
     "fb": "^2.0.0",
     "firebase": "^5.5.5",
     "grpc": "^1.15.1"
-  }
+  },
+  "pre-commit": ["test"]
 }
