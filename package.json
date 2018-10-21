@@ -16,7 +16,7 @@
     },
     "directories": {
       "output": "target",
-      "buildResources" : "build"
+      "buildResources": "build"
     }
   },
   "devDependencies": {

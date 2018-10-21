@@ -34,6 +34,7 @@ function facebookLogin (mainWindow) {
   authWindow.webContents.on('will-navigate', function (event, newUrl, isInPlace) {
     var rawCode = /access_token=([^&]*)/.exec(newUrl) || null
     var accessToken = (rawCode && rawCode.length > 1) ? rawCode[1] : null
+
     var error = /\?error=(.+)$/.exec(newUrl)
 
     if (accessToken) {

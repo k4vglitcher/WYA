@@ -4,9 +4,6 @@ node_js:
 branches:
   only:
   - master
-cache:
-  directories:
-  - node_modules
 install:
 - npm install
 - npm rebuild --runtime=electron --target=2.0.10 --disturl=https://atom.io/download/electron
