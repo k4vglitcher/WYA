@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "test": "jest"
   },
   "devDependencies": {
-    "electron": "2.0.10"
+    "electron": "2.0.10",
+    "jest": "^23.6.0"
   },
   "dependencies": {
     "fb": "^2.0.0",
