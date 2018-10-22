@@ -35,6 +35,7 @@ function facebookLogin (mainWindow) {
     var rawCode = /access_token=([^&]*)/.exec(newUrl) || null
     var accessToken = (rawCode && rawCode.length > 1) ? rawCode[1] : null
 
+    // eslint-disable-next-line no-unused-vars
     var error = /\?error=(.+)$/.exec(newUrl)
 
     if (accessToken) {
@@ -43,6 +44,7 @@ function facebookLogin (mainWindow) {
 
       // Sign in to Firebase with credential from the Facebook user.
       var credential = firebase.auth.FacebookAuthProvider.credential(accessToken)
+      // eslint-disable-next-line handle-callback-err
       firebase.auth().signInAndRetrieveDataWithCredential(credential).catch(function (error) {
         // Handle Errors here.
       })
