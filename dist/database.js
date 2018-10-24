@@ -2,14 +2,10 @@ const firebase = require('firebase')
 
 // This class assumes that firebase app was initialized.
 var db = firebase.firestore()
-// Disable deprecated features
-db.settings({
-  timestampsInSnapshots: true
-})
 
 // This add function will create a new existing object
 // in the database or set its data if it already exists.
-// Returns true if successful.
+// Returns true if successful, false otherwise.
 function add (collection, id, data) {
   db.collection(collection).doc(id).set(data)
     .then(function (docRef) {
@@ -20,6 +16,7 @@ function add (collection, id, data) {
       console.error('Error adding document: ', error)
       return false
     })
+  return true
 }
 
 // Get an entire collection of data.
@@ -65,7 +62,7 @@ function query (collection, params) {
   })
     .catch(function (error) {
       console.log('Error getting documents: ', error)
-      return false;
+      return false
     })
   return documents
 }
