@@ -9,7 +9,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 800, height: 600 })
+  mainWindow = new BrowserWindow({ width: 800, height: 600, show: false })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
@@ -32,11 +32,10 @@ function createWindow () {
     if (user) {
       // User is logged in.
       console.log(user.displayName)
-      console.log(user.email)
-      console.log(user.metadata)
+      mainWindow.show()
     } else {
       // User is not logged in.
-      authentication.facebookLogin(mainWindow)
+      authentication.facebookLogin()
     }
   })
 

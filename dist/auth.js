@@ -2,14 +2,14 @@ const { BrowserWindow } = require('electron')
 const firebase = require('firebase')
 const FB = require('fb')
 
-function facebookLogin (mainWindow) {
+function facebookLogin () {
   // Generate a random lock state.
   let state = Math.random().toString(36).substring(7)
 
   // Our options to get sign-ins.
   var options = {
     client_id: '698162067221362',
-    scopes: ['default', 'user_events', 'user_friends', 'groups_access_member_info', 'email'],
+    scopes: ['user_profile', 'user_events', 'user_friends', 'groups_access_member_info', 'email'],
     redirect_uri: 'https://www.facebook.com/connect/login_success.html',
     state: state
   }
@@ -20,7 +20,6 @@ function facebookLogin (mainWindow) {
     width: 450,
     height: 300,
     show: false,
-    parent: mainWindow,
     modal: true,
     webPreferences: { webSecurity: false, nodeIntegration: false }
   })
@@ -31,7 +30,7 @@ function facebookLogin (mainWindow) {
   authWindow.loadURL(facebookAuthURL)
   authWindow.show()
 
-  authWindow.webContents.on('will-navigate', function (event, newUrl, isInPlace) {
+  authWindow.webContents.on('will-navigate', function (event, newUrl) {
     var rawCode = /access_token=([^&]*)/.exec(newUrl) || null
     var accessToken = (rawCode && rawCode.length > 1) ? rawCode[1] : null
 
