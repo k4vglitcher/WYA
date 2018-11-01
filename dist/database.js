@@ -3,6 +3,11 @@ const firebase = require('firebase')
 // This class assumes that firebase app was initialized.
 var db = firebase.firestore()
 
+// This will break testing due to mock. It is not needed for our use case
+// case so it will cause warnings when documents are added
+// const settings = {/* your settings... */ timestampsInSnapshots: true }
+// db.settings(settings);
+
 // This add function will create a new existing object
 // in the database or set its data if it already exists.
 // Returns true if successful, false otherwise.

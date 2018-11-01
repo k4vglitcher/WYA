@@ -35,7 +35,8 @@
   "dependencies": {
     "fb": "^2.0.0",
     "firebase": "^5.5.5",
-    "grpc": "^1.15.1"
+    "grpc": "^1.15.1",
+    "ticketmaster": "^2.0.4"
   },
   "postinstall": "electron-builder install-app-deps",
   "pre-commit": [
