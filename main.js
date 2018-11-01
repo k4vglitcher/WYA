@@ -2,6 +2,8 @@
 const { app, BrowserWindow } = require('electron')
 const firebase = require('firebase')
 var authentication = require('./dist/auth')
+const path = require('path')
+const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -9,11 +11,14 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 800, height: 600, show: false })
+  mainWindow = new BrowserWindow({ width: 300, height: 300, show: false })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
-  mainWindow.setVibrancy('sidebar')
+  mainWindow.loadFile('./src/splash.html')
+  //mainWindow.setVibrancy('sidebar')
+
+  //DevTools
+  mainWindow.webContents.openDevTools()
 
   // Initialize Firebase
   var config = {

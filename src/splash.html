@@ -1,0 +1,200 @@
+<html>
+
+<head>
+    <title>Loading...</title>
+    <body onclick='window.location.href="./../index.html"'>
+    </body>
+
+
+
+    <audio id="my_audio" src="./../assets/img/trip.mp3" loop="loop"></audio>
+    <title>Loading...</title>
+
+    <script type=text/javascript>
+      window.onload = function() {
+      document.getElementById("my_audio").play();
+      }
+
+
+
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+        html,
+        body {
+            background: rgba(0, 0, 0, 0);
+        }
+
+        .app.activation .title-bar {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .app.activation .title-bar .title {
+            width: 100%;
+            text-align: center;
+        }
+
+        .app .title-bar .title-bar-btns {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .app .title-bar .title-bar-btns .material-icons {
+            font-size: 28px;
+        }
+
+        .app.activation .title-bar .title {
+            margin-left: 23px;
+            padding-top: 3px;
+            padding-bottom: 0;
+        }
+
+        .app.activation .title-bar .title h5 {
+            font-size: 16px;
+            margin: 0;
+            padding-top: 4px;
+        }
+
+        .captcha-container {
+            margin: 2em auto 0 auto;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .captcha-container .captcha-field {
+            margin: 0 auto;
+        }
+
+        .content-container {
+            height: calc(100vh - 31px);
+            background: #1e202f;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .content-container label {
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .content-container .btn.btn-success {
+            padding-top: 3px;
+            padding-bottom: 3px;
+            background: transparent;
+            border-color: #5be79b;
+        }
+
+        .content-container .btn .material-icons {
+            font-size: 20px;
+            vertical-align: text-bottom;
+            color: #5be79b;
+        }
+
+        .content-container .form-control {
+            background: #1e202f;
+            border-radius: 0;
+            border: none;
+            border-bottom: 3px solid #7494eb;
+        }
+
+        .center-center {
+            background-image:  url('./../assets/img/shapes.png'), url('./../assets/img/map1.jpg'), url("./../assets/img/bg.gif");
+            background-size:  auto, 100%, 100%;
+            background-position: center 100px center, center, top;
+            animation: 200s scroll infinite linear;
+            width: 600px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+
+        .main-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 55px;
+            font-weight: 100;
+            position: relative;
+        }
+
+        .text-pink {
+            color: #dc3545;
+            font-weight: 300;
+        }
+
+        .status-text {
+            position: absolute;
+            bottom: 130px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            color: #c8c8c8;
+            font-weight: 100;
+        }
+
+        @keyframes blink {
+            50% {
+                color: transparent
+            }
+        }
+
+        .loader__dot {
+            animation: 1s blink infinite
+        }
+
+        .loader__dot:nth-child(2) {
+            animation-delay: 250ms
+        }
+
+        .loader__dot:nth-child(3) {
+            animation-delay: 500ms
+        }
+
+        @keyframes scroll {
+            100% {
+                background-position: 0px -3000px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="trans-layer">
+        <div class="center-center">
+            <div class="main-text">
+                <span style="color:#ed568c;"><!--
+                -->S</span><span style="color:#ef5c87;"><!--
+                -->t</span><span style="color:#f26382;"><!--
+                -->a</span><span style="color:#f4697d;"><!--
+                -->r</span><span style="color:#f67079;"><!--
+                -->t</span><span style="color:#f87674;"><!--
+                -->i</span><span style="color:#fb7d6f;"><!--
+                -->n</span><span style="color:#fd836a;"><!--
+                -->g</span>
+            </div>
+
+            <div id="status-text" class="status-text">
+                Authenticating User
+            </div>
+        </div>
+
+        <!-- <img src="./../img/splash.png" alt="Splash"> -->
+    </div>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script>
+        window.$ = window.jQuery = require('jquery');
+
+        const ipcRenderer = require('electron').ipcRenderer;
+
+        ipcRenderer.on('setStatus', function(err, data) {
+            $('#status-text').text(data);
+        })
+    </script>
+</body>
+
+</html>
