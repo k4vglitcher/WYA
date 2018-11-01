@@ -1,3 +1,4 @@
+/* eslint-disable */
 var vanillaCalendar = {
     month: document.querySelectorAll('[data-calendar-area="month"]')[0],
     next: document.querySelectorAll('[data-calendar-toggle="next"]')[0],
