@@ -9,13 +9,13 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 300, height: 300, show: false })
+  mainWindow = new BrowserWindow({ width: 800, height: 600, show: false })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('./src/splash.html')
+  mainWindow.loadFile('index.html')
 
   // DevTools
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Initialize Firebase
   var config = {
@@ -37,8 +37,10 @@ function createWindow () {
       mainWindow.show()
     } else {
       // User is not logged in.
-      authentication.facebookLogin(mainWindow)
+      //authentication.facebookLogin(mainWindow)
     }
+    mainWindow.show()
+
   })
 
   // Emitted when the window is closed.
