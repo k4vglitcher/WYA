@@ -32,3 +32,9 @@
 .main {
     margin-left: 200px; /* Same as the width of the sidenav */
 }
+
+#map {
+    left: 220px;
+    width: 570px;
+    height: 560px;
+}

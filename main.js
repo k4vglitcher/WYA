@@ -36,7 +36,7 @@ function createWindow () {
       console.log(user.metadata)
     } else {
       // User is not logged in.
-      authentication.facebookLogin(mainWindow)
+      //authentication.facebookLogin(mainWindow)
     }
   })
 
