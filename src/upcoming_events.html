@@ -17,13 +17,61 @@
     <a href="./upcoming_events.html">Upcoming Events</a>
     <a href="./calendar.html">Calendar</a>
   </div>
-  <div class="first_row">
-    <div id="Events">
-      <p class="text">List of Upcoming Events</p>
-      <h1 id="listofevents">"LOADING THE EVENTS..."</h1>
+
+  <main id="main">
+    <div class="wrapper" style="overflow: auto">
+      <div class="Event_Performer_Image1" style="float:left; "></div>
+      <div class="Event_Performer_Image2" style="margin: 0 0 0 520px;"</div>
     </div>
-  </div>
+    <div class="wrapper1" style="overflow: auto">
+      <div class="Event_Performer_Image3" style="float:left; "></div>
+      <div class="Event_Performer_Image4" style="margin: 0 0 0 520px;"</div>
+    </div>
+    <div class="wrapper" style="overflow: auto">
+      <div class="Event_Performer_Image5" style="float:left; "></div>
+      <div class="Event_Performer_Image6" style="margin: 0 0 0 520px;"</div>
+    </div>
+    <div class="wrapper" style="overflow: auto">
+      <div class="Event_Performer_Image7" style="float:left; "></div>
+      <div class="Event_Performer_Image8" style="margin: 0 0 0 520px;"</div>
+    </div>
+    <div class="wrapper" style="overflow: auto">
+      <div class="Event_Performer_Image9" style="float:left; "></div>
+      <div class="Event_Performer_Image10" style="margin: 0 0 0 520px;"</div>
+    </div>
+    <div class="wrapper" style="overflow: auto">
+      <div class="Event_Performer_Image11" style="float:left; "></div>
+      <div class="Event_Performer_Image12" style="margin: 0 0 0 520px;"</div>
+    </div>
+    <div class="wrapper" style="overflow: auto">
+      <div class="Event_Performer_Image13" style="float:left; "></div>
+      <div class="Event_Performer_Image14" style="margin: 0 0 0 520px;"</div>
+    </div>
+  </main>
+
+  <button onclick="load_data()">TRY</button>
+
+  <script>
+    function load_data() {
+      document.getElementByClassName("Event_Performer_Image1").style.color = "blue";
+
+    }
+  </script>
+
+
+
 </body>
+
+
+
+
+
+<script>
+function changeid() {
+  document.getElementById("listofevents").innerHTML = "NOW LOADING";
+}
+</script>
+
 
 <script src="../dist/upcoming_events.js"></script>
 </body>
