@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,600');
 
 body {
-    background-color: #FF0057;
+    background-color: pink;
     color:#FF0057;
     font-family: 'Montserrat';
     margin:0;
@@ -38,10 +38,28 @@ img {
 h1 {
     margin: 0 0 10px 0;
 }
-.first_row {
-  background-color: blue;
-  margin-left: 225px; /* Same as the width of the sidenav */
+.Event_Performer_Image1, .Event_Performer_Image2
+,.Event_Performer_Image3, .Event_Performer_Image4
+,.Event_Performer_Image5, .Event_Performer_Image6
+,.Event_Performer_Image7, .Event_Performer_Image8
+,.Event_Performer_Image9, .Event_Performer_Image10
+,.Event_Performer_Image11, .Event_Performer_Image12
+,.Event_Performer_Image13, .Event_Performer_Image14
+
+ {
+  margin-left: 230px; /* Same as the width of the sidenav */
+  background-image: url('./../img/progress_indicator.gif');
+  width: 260px;
+  height: 260px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
+.PageTitle {
+  margin-left: 250px;
+
+}
+
 
 button {
     float:right;
