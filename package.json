@@ -36,9 +36,11 @@
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
+    "eventbrite": "^1.0.3",
     "fb": "^2.0.0",
     "firebase": "^5.5.5",
     "grpc": "^1.15.1",
+    "node-eventbrite": "0.0.19",
     "ticketmaster": "^2.0.4"
   },
   "postinstall": "electron-builder install-app-deps",

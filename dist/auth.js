@@ -2,7 +2,7 @@ const { BrowserWindow } = require('electron')
 const firebase = require('firebase')
 const FB = require('fb')
 
-function facebookLogin () {
+function facebookLogin (mainWindow) {
   // Generate a random lock state.
   let state = Math.random().toString(36).substring(7)
 
@@ -48,6 +48,7 @@ function facebookLogin () {
         // Handle Errors here.
       })
       authWindow.close()
+      mainWindow.show()
     }
   })
 }

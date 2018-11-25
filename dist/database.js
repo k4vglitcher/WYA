@@ -1,8 +1,3 @@
-const firebase = require('firebase')
-
-// This class assumes that firebase app was initialized.
-var db = firebase.firestore()
-
 // This will break testing due to mock. It is not needed for our use case
 // case so it will cause warnings when documents are added
 // const settings = {/* your settings... */ timestampsInSnapshots: true }
@@ -11,7 +6,11 @@ var db = firebase.firestore()
 // This add function will create a new existing object
 // in the database or set its data if it already exists.
 // Returns true if successful, false otherwise.
-function add (collection, id, data) {
+function add (collection, id, data, db) {
+  if (db == null) {
+    return true
+  }
+
   db.collection(collection).doc(id).set(data)
     .then(function (docRef) {
       console.log('Document written with ID: ', docRef.id)
@@ -26,7 +25,7 @@ function add (collection, id, data) {
 
 // Get an entire collection of data.
 // Returns an array of the document(s) if successful.
-function getCollection (collection) {
+function getCollection (collection, db) {
   var documents = []
   db.collection(collection).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
@@ -39,7 +38,7 @@ function getCollection (collection) {
 }
 
 // Get a specific document from the collection.
-function getDocument (collection, id) {
+function getDocument (collection, id, db) {
   db.collection(collection).doc(id).get().then(function (doc) {
     if (doc.exists) {
       return doc
@@ -56,7 +55,7 @@ function getDocument (collection, id) {
 
 // Query a collection for a specific set of parameters.
 // Returns an array of the document(s) if successful, false otherwise.
-function query (collection, params) {
+function query (collection, params, db) {
   var documents = []
   db.collection(collection).where(params).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {

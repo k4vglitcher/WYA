@@ -2,6 +2,7 @@
 const { app, BrowserWindow } = require('electron')
 const firebase = require('firebase')
 var authentication = require('./dist/auth')
+var event = require('./dist/event')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -26,19 +27,21 @@ function createWindow () {
     storageBucket: 'wya-electron.appspot.com',
     messagingSenderId: '604404649711'
   }
-  firebase.initializeApp(config)
-  firebase.auth().useDeviceLanguage()
+  var fbapp = firebase.initializeApp(config, 'WYA')
+  fbapp.auth().useDeviceLanguage()
+
+  // Update eventbrite events in database
+  event.updateEventbriteEvents(false, fbapp.firestore())
 
   // Listener for Firebase auth state changes.
-  firebase.auth().onAuthStateChanged(function (user) {
+  fbapp.auth().onAuthStateChanged(function (user) {
     if (user) {
       // User is logged in.
       console.log(user.displayName)
       mainWindow.show()
     } else {
       // User is not logged in.
-      // authentication.facebookLogin(mainWindow)    
-      mainWindow.show()
+      authentication.facebookLogin(mainWindow)
     }
   })
 

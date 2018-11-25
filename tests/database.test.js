@@ -15,7 +15,7 @@ var TEST_DATA = {
 }
 
 test('Return true when a member is successfully added', () => {
-  var result = database.add(TEST_COLLECTION, TEST_ID, TEST_DATA)
+  var result = database.add(TEST_COLLECTION, TEST_ID, TEST_DATA, null)
   expect(result).toBe(true)
 })
 
