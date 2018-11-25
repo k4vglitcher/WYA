@@ -4,3 +4,6 @@ package-lock.json
 
 # Ignore build directory
 target
+
+# Ignore coverage directory created by jest
+coverage

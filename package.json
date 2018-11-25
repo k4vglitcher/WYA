@@ -2,6 +2,9 @@
   "name": "WYA",
   "version": "1.0.0",
   "main": "main.js",
+  "jest": {
+    "collectCoverage": true
+  },
   "scripts": {
     "start": "electron .",
     "test": "jest --updateSnapshot",
