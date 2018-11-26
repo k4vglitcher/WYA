@@ -16,12 +16,14 @@ after_script:
 - git config --global user.name "Travis CI"
 - git config --global push.default simple
 - mkdir reports
+- rm -rf coverage
 - git checkout $TRAVIS_BRANCH
 - git pull
 - (npm run lint) > ./reports/$TRAVIS_BUILD_NUMBER-report.txt
 - CI=true npm test >> ./reports/$TRAVIS_BUILD_NUMBER-report.txt 2>&1
 - (npm run build) >> ./reports/$TRAVIS_BUILD_NUMBER-report.txt
 - git add .
+- git add -f coverage
 - git commit --no-verify -m "[skip travis] Reports for Build $TRAVIS_BUILD_NUMBER uploaded."
 - git remote add repo https://${GH_TOKEN}:x-oauth-basic@github.com/juanam/WYA.git
 - git push repo $TRAVIS_BRANCH
