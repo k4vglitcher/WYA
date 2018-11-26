@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for database.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> database.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.18% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>6/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.69% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.18% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>6/33</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// This will break testing due to mock. It is not needed for our use case
+// case so it will cause warnings when documents are added
+// const settings = {/* your settings... */ timestampsInSnapshots: true }
+// db.settings(settings);
+&nbsp;
+// This add function will create a new existing object
+// in the database or set its data if it already exists.
+// Returns true if successful, false otherwise.
+function add (collection, id, data, db) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (db == null) {
+    return true
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  db.collection(collection).doc(id).set(data)</span>
+    .then(<span class="fstat-no" title="function not covered" >fu</span>nction (docRef) {
+<span class="cstat-no" title="statement not covered" >      console.log('Document written with ID: ', docRef.id)</span>
+<span class="cstat-no" title="statement not covered" >      return true</span>
+    })
+    .catch(<span class="fstat-no" title="function not covered" >fu</span>nction (error) {
+<span class="cstat-no" title="statement not covered" >      console.error('Error adding document: ', error)</span>
+<span class="cstat-no" title="statement not covered" >      return false</span>
+    })
+<span class="cstat-no" title="statement not covered" >  return true</span>
+}
+&nbsp;
+// Get an entire collection of data.
+// Returns an array of the document(s) if successful.
+function <span class="fstat-no" title="function not covered" >getCollection </span>(collection, db) {
+  var documents = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >  db.collection(collection).get().then(<span class="fstat-no" title="function not covered" >fu</span>nction (querySnapshot) {</span>
+<span class="cstat-no" title="statement not covered" >    querySnapshot.forEach(<span class="fstat-no" title="function not covered" >fu</span>nction (doc) {</span>
+      // doc.data() is never undefined for query doc snapshots
+<span class="cstat-no" title="statement not covered" >      console.log(doc.id, ' =&gt; ', doc.data())</span>
+<span class="cstat-no" title="statement not covered" >      documents.push(doc.data())</span>
+    })
+  })
+<span class="cstat-no" title="statement not covered" >  return documents</span>
+}
+&nbsp;
+// Get a specific document from the collection.
+function <span class="fstat-no" title="function not covered" >getDocument </span>(collection, id, db) {
+<span class="cstat-no" title="statement not covered" >  db.collection(collection).doc(id).get().then(<span class="fstat-no" title="function not covered" >fu</span>nction (doc) {</span>
+<span class="cstat-no" title="statement not covered" >    if (doc.exists) {</span>
+<span class="cstat-no" title="statement not covered" >      return doc</span>
+    } else {
+      // doc.data() will be undefined in this case
+<span class="cstat-no" title="statement not covered" >      console.log('No such document!')</span>
+<span class="cstat-no" title="statement not covered" >      return false</span>
+    }
+  }).catch(<span class="fstat-no" title="function not covered" >fu</span>nction (error) {
+<span class="cstat-no" title="statement not covered" >    console.log('Error getting document:', error)</span>
+<span class="cstat-no" title="statement not covered" >    return false</span>
+  })
+}
+&nbsp;
+// Query a collection for a specific set of parameters.
+// Returns an array of the document(s) if successful, false otherwise.
+function <span class="fstat-no" title="function not covered" >query </span>(collection, params, db) {
+  var documents = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >  db.collection(collection).where(params).get().then(<span class="fstat-no" title="function not covered" >fu</span>nction (querySnapshot) {</span>
+<span class="cstat-no" title="statement not covered" >    querySnapshot.forEach(<span class="fstat-no" title="function not covered" >fu</span>nction (doc) {</span>
+      // doc.data() is never undefined for query doc snapshots
+<span class="cstat-no" title="statement not covered" >      console.log(doc.id, ' =&gt; ', doc.data())</span>
+<span class="cstat-no" title="statement not covered" >      documents.push(doc)</span>
+    })
+  })
+    .catch(<span class="fstat-no" title="function not covered" >fu</span>nction (error) {
+<span class="cstat-no" title="statement not covered" >      console.log('Error getting documents: ', error)</span>
+<span class="cstat-no" title="statement not covered" >      return false</span>
+    })
+<span class="cstat-no" title="statement not covered" >  return documents</span>
+}
+&nbsp;
+// Function exports
+module.exports.add = add
+module.exports.getCollection = getCollection
+module.exports.getDocument = getDocument
+module.exports.query = query
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 26 2018 23:41:02 GMT+0000 (Coordinated Universal Time)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>

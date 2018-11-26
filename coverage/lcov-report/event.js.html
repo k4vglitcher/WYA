@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for event.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> event.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">36% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var database = require('./database.js')
+var ticketmaster = require('ticketmaster')
+const eventbrite = require('node-eventbrite')
+var eventbriteAPI
+try {
+  eventbriteAPI = eventbrite({
+    token: 'LNR6WHXUNVLOJX32TB56',
+    version: 'v3'
+  })
+} catch (error) {
+<span class="cstat-no" title="statement not covered" >  console.log(error.message) </span>// the options are missing, this function throws an error.
+}
+var tmkey = '0Ob5GZwRU5VBfD3M1iubnPdOa9DjyUIi'
+&nbsp;
+function getTicketmasterEvents (testing) {
+  ticketmaster(tmkey).discovery.v2.event.all().then(<span class="fstat-no" title="function not covered" >fu</span>nction (result) {
+<span class="cstat-no" title="statement not covered" >    if (testing &amp;&amp; result.items.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      return true</span>
+    }
+    var i = <span class="cstat-no" title="statement not covered" >0</span>
+<span class="cstat-no" title="statement not covered" >    for (i = 0; i &lt; 10 &amp;&amp; i &lt; result.items.length; i++) {</span>
+      var event = <span class="cstat-no" title="statement not covered" >result.items[i]</span>
+      var eventdata = <span class="cstat-no" title="statement not covered" >{</span>
+        'id': event['id'],
+        'url': event['url'],
+        'images': event['images'],
+        'dates': event['dates'],
+        'priceRanges': event['priceRanges'],
+        'type': 'ticketmaster'
+      }
+<span class="cstat-no" title="statement not covered" >      database.add('events', eventdata['id'], eventdata)</span>
+    }
+  })
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >updateEventbriteEvents </span>(testing, db) {
+  // Search for eventbrite events around Columbia University.
+<span class="cstat-no" title="statement not covered" >  eventbriteAPI.search({ 'location.address': '116th St &amp; Broadway, New York, NY 10027', 'location.within': '1mi' }, <span class="fstat-no" title="function not covered" >fu</span>nction (error, data) {</span>
+<span class="cstat-no" title="statement not covered" >    if (error) { <span class="cstat-no" title="statement not covered" >console.log(error.message) </span>} else { var eventResponse = <span class="cstat-no" title="statement not covered" >data['events'] </span>}</span>
+    var i = <span class="cstat-no" title="statement not covered" >0</span>
+<span class="cstat-no" title="statement not covered" >    for (i = 0; i &lt; eventResponse.length; i++) {</span>
+      var res = <span class="cstat-no" title="statement not covered" >eventResponse[i]</span>
+      var eventdata = <span class="cstat-no" title="statement not covered" >{</span>
+        'id': res['id'],
+        'name': res['name'],
+        'url': res['url'],
+        'start': res['start'],
+        'end': res['end'],
+        'images': res['logo'],
+        'description': res['description'],
+        'venue': res['venue_id'],
+        'type': 'eventbrite'
+      }
+<span class="cstat-no" title="statement not covered" >      if (eventdata['id'] != null) {</span>
+<span class="cstat-no" title="statement not covered" >        database.add('events', eventdata['id'], eventdata, db)</span>
+      }
+    }
+  })
+}
+&nbsp;
+module.exports.getTicketmasterEvents = getTicketmasterEvents
+module.exports.updateEventbriteEvents = updateEventbriteEvents
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 26 2018 23:41:02 GMT+0000 (Coordinated Universal Time)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>
