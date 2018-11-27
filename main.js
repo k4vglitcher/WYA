@@ -15,9 +15,6 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-  // DevTools
-  // mainWindow.webContents.openDevTools()
-
   // Initialize Firebase
   var config = {
     apiKey: 'AIzaSyBKOGWZtv9h0dLHEhvTWewbvPQsajxa3Kw',
@@ -33,6 +30,7 @@ function createWindow () {
   // Update eventbrite events in database
   event.updateEventbriteEvents(false, fbapp.firestore())
   event.updateTicketmasterEvents(false, fbapp.firestore())
+  event.getAllEvents(fbapp.firestore())
 
   // Listener for Firebase auth state changes.
   fbapp.auth().onAuthStateChanged(function (user) {

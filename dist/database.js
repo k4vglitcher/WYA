@@ -9,9 +9,6 @@ function add (collection, id, data, db) {
     return true
   }
 
-  const settings = {/* your settings... */ timestampsInSnapshots: true }
-  db.settings(settings);
-
   db.collection(collection).doc(id).set(data)
     .then(function (docRef) {
       console.log('Document written with ID: ', id)
@@ -26,16 +23,32 @@ function add (collection, id, data, db) {
 
 // Get an entire collection of data.
 // Returns an array of the document(s) if successful.
-function getCollection (collection, db) {
+async function getCollection (collection, db) {
   var documents = []
-  db.collection(collection).get().then(function (querySnapshot) {
-    querySnapshot.forEach(function (doc) {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, ' => ', doc.data())
-      documents.push(doc.data())
+  let prom = await loadToDocuments(documents, db, collection).then(function(result) {
+    return new Promise(resolve => {
+      resolve(result)
     })
   })
-  return documents
+  return prom
+  // db.collection(collection).get().then(function (querySnapshot) {
+  //   querySnapshot.forEach(function (doc) {
+  //     // doc.data() is never undefined for query doc snapshots
+  //     documents.push(doc.data())
+  //   })
+  // })
+}
+
+async function loadToDocuments(documents, db, collection) {
+  return new Promise((resolve, reject) => {
+    db.collection(collection).get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        // doc.data() is never undefined for query doc snapshots
+        documents.push(doc.data())
+      })
+      resolve(documents)
+    })
+  })
 }
 
 // Get a specific document from the collection.

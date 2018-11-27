@@ -59,5 +59,10 @@ function updateEventbriteEvents (testing, db) {
   })
 }
 
+function getAllEvents (db) {
+  return database.getCollection('events', db)
+}
+
 module.exports.updateTicketmasterEvents = updateTicketmasterEvents
 module.exports.updateEventbriteEvents = updateEventbriteEvents
+module.exports.getAllEvents = getAllEvents
