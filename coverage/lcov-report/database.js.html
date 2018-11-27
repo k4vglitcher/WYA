@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">17.14% </span>
+        <span class="strong">16.22% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/35</span>
+        <span class='fraction'>6/37</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">25% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>1/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">7.69% </span>
+        <span class="strong">5.88% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/13</span>
+        <span class='fraction'>1/17</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">17.14% </span>
+        <span class="strong">16.22% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/35</span>
+        <span class='fraction'>6/37</span>
       </div>
     </div>
   </div>
@@ -122,7 +122,20 @@
 77
 78
 79
-80</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -134,9 +147,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -154,12 +164,28 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,9 +238,6 @@ function add (collection, id, data, db) {
     return true
   }
 &nbsp;
-  const settings = <span class="cstat-no" title="statement not covered" >{/* your settings... */ timestampsInSnapshots: true }</span>
-<span class="cstat-no" title="statement not covered" >  db.settings(settings);</span>
-&nbsp;
 <span class="cstat-no" title="statement not covered" >  db.collection(collection).doc(id).set(data)</span>
     .then(<span class="fstat-no" title="function not covered" >fu</span>nction (docRef) {
 <span class="cstat-no" title="statement not covered" >      console.log('Document written with ID: ', id)</span>
@@ -229,16 +252,32 @@ function add (collection, id, data, db) {
 &nbsp;
 // Get an entire collection of data.
 // Returns an array of the document(s) if successful.
-function <span class="fstat-no" title="function not covered" >getCollection </span>(collection, db) {
+async function <span class="fstat-no" title="function not covered" >getCollection </span>(collection, db) {
   var documents = <span class="cstat-no" title="statement not covered" >[]</span>
-<span class="cstat-no" title="statement not covered" >  db.collection(collection).get().then(<span class="fstat-no" title="function not covered" >fu</span>nction (querySnapshot) {</span>
-<span class="cstat-no" title="statement not covered" >    querySnapshot.forEach(<span class="fstat-no" title="function not covered" >fu</span>nction (doc) {</span>
-      // doc.data() is never undefined for query doc snapshots
-<span class="cstat-no" title="statement not covered" >      console.log(doc.id, ' =&gt; ', doc.data())</span>
-<span class="cstat-no" title="statement not covered" >      documents.push(doc.data())</span>
+  let prom = <span class="cstat-no" title="statement not covered" >await loadToDocuments(documents, db, collection).then(<span class="fstat-no" title="function not covered" >fu</span>nction(result) {</span>
+<span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >re</span>solve =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      resolve(result)</span>
     })
   })
-<span class="cstat-no" title="statement not covered" >  return documents</span>
+<span class="cstat-no" title="statement not covered" >  return prom</span>
+  // db.collection(collection).get().then(function (querySnapshot) {
+  //   querySnapshot.forEach(function (doc) {
+  //     // doc.data() is never undefined for query doc snapshots
+  //     documents.push(doc.data())
+  //   })
+  // })
+}
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >loadToDocuments(</span>documents, db, collection) {
+<span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    db.collection(collection).get().then(<span class="fstat-no" title="function not covered" >fu</span>nction (querySnapshot) {</span>
+<span class="cstat-no" title="statement not covered" >      querySnapshot.forEach(<span class="fstat-no" title="function not covered" >fu</span>nction (doc) {</span>
+        // doc.data() is never undefined for query doc snapshots
+<span class="cstat-no" title="statement not covered" >        documents.push(doc.data())</span>
+      })
+<span class="cstat-no" title="statement not covered" >      resolve(documents)</span>
+    })
+  })
 }
 &nbsp;
 // Get a specific document from the collection.
@@ -286,7 +325,7 @@ module.exports.query = query
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 27 2018 04:44:14 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 27 2018 06:54:23 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="prettify.js"></script>
