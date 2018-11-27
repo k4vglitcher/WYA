@@ -32,6 +32,7 @@ function createWindow () {
 
   // Update eventbrite events in database
   event.updateEventbriteEvents(false, fbapp.firestore())
+  event.updateTicketmasterEvents(false, fbapp.firestore())
 
   // Listener for Firebase auth state changes.
   fbapp.auth().onAuthStateChanged(function (user) {
@@ -41,7 +42,8 @@ function createWindow () {
       mainWindow.show()
     } else {
       // User is not logged in.
-      authentication.facebookLogin(mainWindow)
+      // authentication.facebookLogin(mainWindow)
+      mainWindow.show()
     }
   })
 

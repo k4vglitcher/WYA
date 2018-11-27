@@ -12,23 +12,24 @@ try {
 }
 var tmkey = '0Ob5GZwRU5VBfD3M1iubnPdOa9DjyUIi'
 
-function getTicketmasterEvents (testing) {
-  ticketmaster(tmkey).discovery.v2.event.all().then(function (result) {
+function updateTicketmasterEvents (testing, db) {
+  ticketmaster(tmkey).discovery.v2.event.all({city: 'New York City'}).then(function (result) {
     if (testing && result.items.length > 0) {
       return true
     }
     var i = 0
-    for (i = 0; i < 10 && i < result.items.length; i++) {
+    for (i = 0; i < result.items.length; i++) {
       var event = result.items[i]
+
       var eventdata = {
         'id': event['id'],
         'url': event['url'],
         'images': event['images'],
         'dates': event['dates'],
-        'priceRanges': event['priceRanges'],
+        'location': event['_embedded']['venues'][0]['location'],
         'type': 'ticketmaster'
       }
-      database.add('events', eventdata['id'], eventdata)
+      database.add('events', eventdata['id'], eventdata, db)
     }
   })
 }
@@ -58,5 +59,5 @@ function updateEventbriteEvents (testing, db) {
   })
 }
 
-module.exports.getTicketmasterEvents = getTicketmasterEvents
+module.exports.updateTicketmasterEvents = updateTicketmasterEvents
 module.exports.updateEventbriteEvents = updateEventbriteEvents

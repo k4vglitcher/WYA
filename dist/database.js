@@ -1,7 +1,5 @@
 // This will break testing due to mock. It is not needed for our use case
 // case so it will cause warnings when documents are added
-// const settings = {/* your settings... */ timestampsInSnapshots: true }
-// db.settings(settings);
 
 // This add function will create a new existing object
 // in the database or set its data if it already exists.
@@ -11,9 +9,12 @@ function add (collection, id, data, db) {
     return true
   }
 
+  const settings = {/* your settings... */ timestampsInSnapshots: true }
+  db.settings(settings);
+
   db.collection(collection).doc(id).set(data)
     .then(function (docRef) {
-      console.log('Document written with ID: ', docRef.id)
+      console.log('Document written with ID: ', id)
       return true
     })
     .catch(function (error) {
