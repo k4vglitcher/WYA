@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1543301663186" clover="3.2.0">
-  <project timestamp="1543301663186" name="All files">
+<coverage generated="1543370129695" clover="3.2.0">
+  <project timestamp="1543370129695" name="All files">
     <metrics statements="88" coveredstatements="21" conditionals="22" coveredconditionals="2" methods="26" coveredmethods="2" elements="136" coveredelements="25" complexity="0" loc="88" ncloc="88" packages="1" files="3" classes="3">
       <file name="auth.js" path="/home/travis/build/juanam/WYA/dist/auth.js">
         <metrics statements="24" coveredstatements="6" conditionals="10" coveredconditionals="1" methods="4" coveredmethods="1"/>
