@@ -38,28 +38,14 @@
            <p>Remove Group</p>
        </div>
        </button>
-       <!-- Start of form -->
 
-       <form action='' id='theform' >
-       <div class='row'>
-           <div class="form-group col-md-4">
-                   <label for="name">Group Name:</label>
-                   <input type='text' name='name' class='form-control'/>
-           </div>
-       </div>
-       <div class='row'>
-           <div class="form-group col-md-4">
-                   <label for="description">Description:</label>
-                   <input type='text' name='description' class='form-control'/>
-           </div>
-       </div>
-       <div class='row'>
-           <div class="form-group col-md-4">
-                <input class='btn btn-primary pull-right' type="button" value="Submit" id='btnsubmit' />
-           </div>
-       </div>
-       </form>
-       <!-- End of form -->
+      <form id="form1" type="hidden">
+        <b>Group Name:</b> <input type="text" name="groupName">
+          <br><br>
+        <b>Description: </b><input type="text" name="Description">
+          <br><br>
+        <button type="button" id="submit">Submit</button>
+        </form>
        <div id="groups"></div>
 
 

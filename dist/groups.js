@@ -1,7 +1,12 @@
 $(document).ready(function(){
 
+  $("#form1").toggle();
   $("button.plus").on("click",function(){
-    $("#groups").append("<div class=item><p>Group</p></div>");
+    $("#form1").toggle();
+  })
+
+  $("#submit").on("click",function(){
+    $("#form1").toggle();
   })
 
   $("button.minus").on("click",function(){
@@ -14,6 +19,7 @@ $(document).ready(function(){
       .attr('disabled', 'disabled');
     return true;
   });
+
 
 
   })
