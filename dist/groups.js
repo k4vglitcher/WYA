@@ -8,4 +8,12 @@ $(document).ready(function(){
     $("#groups").children("div:last").remove();
   })
 
+  $('#theform').submit(function(){
+    $("input[type='submit']", this)
+      .val("Please Wait...")
+      .attr('disabled', 'disabled');
+    return true;
+  });
+
+
   })
