@@ -13,11 +13,12 @@ try {
 var tmkey = '0Ob5GZwRU5VBfD3M1iubnPdOa9DjyUIi'
 
 function updateTicketmasterEvents (testing, db) {
-  ticketmaster(tmkey).discovery.v2.event.all({city: 'New York City'}).then(function (result) {
+  ticketmaster(tmkey).discovery.v2.event.all({geopoint: 'drh5dcg0bsqy', radius: 5, unit: "miles"}).then(function (result) {
     if (testing && result.items.length > 0) {
       return true
     }
     var i = 0
+    console.log(result.items.length)
     for (i = 0; i < result.items.length; i++) {
       var event = result.items[i]
 
@@ -30,6 +31,7 @@ function updateTicketmasterEvents (testing, db) {
         'type': 'ticketmaster'
       }
       database.add('events', eventdata['id'], eventdata, db)
+
     }
   })
 }
