@@ -12,7 +12,8 @@
 </head>
 
 <body>
-  <!-- Sidebar -->
+
+
   <div id="sidebar" class="sidenav">
     <a href="#">Home</a>
     <a href="src/groups.html">My Groups</a>
@@ -21,60 +22,19 @@
   </div>
 </body>
 
+
+<script src="https://hpneo.github.io/gmaps/gmaps.js"></script>
 <div class= "map-area">
-  <div id="map"></div>
+  <div id="map">here</div>
 </div>
 
 <script>
   require('./renderer.js')
 </script>
-
+<div id="mapBody">LOADING!</div>
 <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://maps.google.com/maps/api/js"></script>
+<script src="./dist/maps.js"></script>
+
 <script src="js/gmaps.js"></script>
-<script>
-    var map = new GMaps({
-      el: '#map',
-      lat: 40.8075,
-      lng: -73.9626,
-      zoom: 17,
-    });
-</script>
-<script>
-    map.addMarker({
-      lat: 40.806,
-      lng: -73.9625,
-      title: 'Ligma',
-      infoWindow:{
-        content: '<p>JJ\'s Thanksgiving Dinner</p>'
-      }
-    });
-    map.addMarker({
-      lat: 40.807109,
-      lng: -73.963023,
-      title: 'Frisbiee',
-      infoWindow: {
-        content: '<div style=\'float:left\'><img src="./assets/img/frisbee.jpg" style:"width:4px; height:4px"></div><div style:\'float:right; padding: 10px\'><p><b>Public Event: 11/23/18 at 12:00PM</b></p><p>Frisbiee Ultimate National Tournament</p> \
-        The Last Round of the National Championship of Ultimate Frisbee embarks on the grounds of Columbia University as 16 teams compete to represent The United States of America in the International Tournament'
-
-      }
-    });
-    map.addMarker({
-      lat: 40.806870,
-      lng: -73.963892,
-      title: 'Nuestra America',
-      infoWindow: {
-
-        content: '<div style=\'float:left\'><img src="./assets/img/nuestra.jpg" style:"width:4px; height:4px"></div><div style:\'float:right; padding: 10px\'><p><b>Public Event: 11/7/18 at 7:00PM</b></p><p>Nuestra America: Jose Marti</p> \
-        José Martí’s Our America offers a new understanding of Martí’s ambiguous and \
-        problematic relation with the United States and will engage scholars and students \
-        in American, Latin American, and Latino studies as well as those interested in cultural, \
-        postcolonial, gender, and ethnic studies.</div>'
-      }
-    });
-
-  </script>
-
-
-
 </html>
