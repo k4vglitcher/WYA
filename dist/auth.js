@@ -44,9 +44,7 @@ function facebookLogin (mainWindow) {
       // Sign in to Firebase with credential from the Facebook user.
       var credential = firebase.auth.FacebookAuthProvider.credential(accessToken)
       // eslint-disable-next-line handle-callback-err
-      firebase.auth().signInAndRetrieveDataWithCredential(credential).catch(function (error) {
-        // Handle Errors here.
-      })
+
       authWindow.close()
       mainWindow.show()
     }

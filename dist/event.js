@@ -13,7 +13,7 @@ try {
 var tmkey = '0Ob5GZwRU5VBfD3M1iubnPdOa9DjyUIi'
 
 function updateTicketmasterEvents (testing, db) {
-  ticketmaster(tmkey).discovery.v2.event.all({geopoint: 'drh5dcg0bsqy', radius: 5, unit: "miles"}).then(function (result) {
+  ticketmaster(tmkey).discovery.v2.event.all({geoPoint: 'dr72hutzd', radius: "10", unit: "miles"}).then(function (result) {
     if (testing && result.items.length > 0) {
       return true
     }

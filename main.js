@@ -40,8 +40,7 @@ function createWindow () {
       mainWindow.show()
     } else {
       // User is not logged in.
-      // authentication.facebookLogin(mainWindow)
-      mainWindow.show()
+      authentication.facebookLogin(mainWindow)
     }
   })
 
